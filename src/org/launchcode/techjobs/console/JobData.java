@@ -75,9 +75,10 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            //make search case insensitive
+            String aValue = row.get(column).toLowerCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -100,7 +101,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            //iterate over all columns
+            //iterate over all columns and add rows that contain value
             for (String column : row.keySet()) {
                 if (row.get(column).toLowerCase().contains(value)) {
 
@@ -112,20 +113,7 @@ public class JobData {
 
             return jobs;
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
